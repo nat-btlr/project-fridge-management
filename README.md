@@ -1,4 +1,7 @@
 # Project-fridge-management
-The project created using node.js and React to manage the fridge contents.
+The project is created using node.js and React to manage the fridge contents.
+
+1. The backend of the project is finished for product management.
+2. Tailwind configured, jsx components created.
 
 
