@@ -48,11 +48,39 @@ app.get("/products", async (_, res) => {
     try {
         const sql_request = "SELECT * FROM products";
         const [results] = await query(sql_request);
-        console.log("Products were retrieved successfully");
+        console.log("Products were retrieved successfully.");
         res.status(200).send(results)
     } catch (error) {
-        console.log("Error while adding a product:", error);
+        console.log("Error while adding a product: ", error);
         res.status(500).send({message: "Internal server error", error})
+    }
+});
+
+// Endpoint for retrieving all available categories
+app.get("/categories", async (_, res) => {
+    try {
+        const sql_request = "SELECT * FROM categories";
+        const results = await query(sql_request);
+        console.log("Raw Results: ", results); 
+
+        res.status(200).send(results);
+    } catch (error) {
+        console.log("Error while retrieving categories: ", error);
+        res.status(500).send({ message: "Internal server error", error });
+    }
+});
+
+// Endpoint for retrieving all available units
+app.get("/units", async (_, res) => {
+    try {
+        const sql_request = "SELECT * FROM units";
+        const results = await query(sql_request);
+        console.log("Raw Results: ", results); 
+
+        res.status(200).send(results);
+    } catch (error) {
+        console.log("Error while retrieving units: ", error);
+        res.status(500).send({ message: "Internal server error", error });
     }
 });
 
